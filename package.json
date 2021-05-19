@@ -6,17 +6,34 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "cheerio": "^1.0.0-rc.9",
+    "express": "^4.17.1",
+    "jsdom": "^16.5.3",
+    "jsonld": "^5.2.0",
+    "nodemon": "^2.0.7",
+    "puppeteer": "^9.1.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "recipe-scraper": "^2.0.0",
+    "sqlite3": "^5.0.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "nodemon ./server/index.js",
+    "server": "node ./server/index.js"
   },
+  "proxy": "http://localhost:3069",
   "eslintConfig": {
     "extends": [
       "react-app",

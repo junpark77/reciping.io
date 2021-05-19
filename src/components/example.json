@@ -1,0 +1,28 @@
+{
+  "name": "Banana Banana Bread",
+  "ingredients": [
+      "2 cups all-purpose flour",
+      "1 teaspoon baking soda",
+      "¼ teaspoon salt",
+      "½ cup butter",
+      "¾ cup brown sugar",
+      "2 eggs, beaten",
+      "2 ⅓ cups mashed overripe bananas"
+  ],
+  "instructions": [
+      "Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x5 inch loaf pan.",
+      "In a large bowl, combine flour, baking soda and salt. In a separate bowl, cream together butter and brown sugar. Stir in eggs and mashed bananas until well blended. Stir banana mixture into flour mixture; stir just to moisten. Pour batter into prepared loaf pan.",
+      "Bake in preheated oven for 60 to 65 minutes, until a toothpick inserted into center of the loaf comes out clean. Let bread cool in pan for 10 minutes, then turn out onto a wire rack."
+  ],
+  "tags": [],
+  "time": {
+      "prep": "15 mins",
+      "cook": "1 hr 5 mins",
+      "active": "",
+      "inactive": "",
+      "ready": "",
+      "total": "1 hr 20 mins"
+  },
+  "servings": "12\n",
+  "image": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=800&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F-0001%2F11%2F30%2F4565477.jpg"
+}

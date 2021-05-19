@@ -1,0 +1,9 @@
+#recipeBox {
+  min-height: 50vh;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#urlInput {
+  margin-top:5%;
+}

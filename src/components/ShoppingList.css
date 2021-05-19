@@ -1,0 +1,9 @@
+.listItem {
+  cursor: pointer;
+  text-align: center;
+  overflow:hidden;
+}
+
+.deleteButton {
+  float: right;
+}
