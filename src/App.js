@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
 import axios from 'axios';
 import './App.css';
 import Header from './components/Navbar';
@@ -33,8 +28,10 @@ function App() {
   }, [userID])
 
   return (
+    <>
     <div className="App">
       <Header userID={userID} setUserID={setUserID} setCurrentPage={setCurrentPage} />
+      <div className="wrapper">
       {currentPage === 'home' ?
       <Home
         shoppingList={shoppingList}
@@ -43,6 +40,8 @@ function App() {
         setCurrentPage={setCurrentPage}
         recipeURL={recipeURL}
         setRecipeURL={setRecipeURL}
+        setSavedRecipes={setSavedRecipes}
+        setShoppingList={setShoppingList}
         />
       : null
       }
@@ -61,13 +60,14 @@ function App() {
       />
       : null
       }
-
+      </div>
+    </div>
       <hr />
-      <footer>
+      <footer className="footer">
         <p>	&copy;2021 Jun Park</p>
         <p><a href="https://www.linkedin.com/in/junhpark/">Please give me a job</a></p>
       </footer>
-    </div>
+      </>
   );
 }
 

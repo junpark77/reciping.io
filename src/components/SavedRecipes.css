@@ -1,3 +1,18 @@
-.recipeImage{
-  height: 60vh;
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.deleteRecipe {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.recipeCard {
+  margin: 25px;
 }

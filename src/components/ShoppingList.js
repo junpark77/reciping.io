@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Dropdown, DropdownButton, Alert, Button, Modal, Container, ListGroup, Jumbotron, InputGroup, FormControl } from 'react-bootstrap';
+import { Row, Col, Dropdown, DropdownButton, Alert, Button, Modal, Container, ListGroup, Jumbotron, InputGroup, FormControl } from 'react-bootstrap';
 import './ShoppingList.css';
 
 function ShoppingList(props) {
@@ -20,21 +20,24 @@ function ShoppingList(props) {
   };
 
   const deleteIngredient = (ingredient) => {
-    axios.put('/shoppingList/delete', {ingredient})
+    axios.delete(`/shoppingList?ingredient=${encodeURIComponent(ingredient)}`)
       .then((result)=>{props.setShoppingList(result.data)})
       .catch((e) => {
         setDeleteError(true)
-        setTimeout(()=>setDeleteError(false), 3000)
+        setTimeout(()=>setDeleteError(false), 2000);
       })
   };
 
   const updateIngredient = () => {
-    axios.put('/shoppingList/update',
+    axios.patch('/shoppingList',
     {ingredient: currentIngredient, quantity, unit})
-    .then((result) => {props.setShoppingList(result.data)})
+    .then((result) => {
+      props.setShoppingList(result.data)
+      setShowModal(false);
+    })
     .catch((e) => {
       setUpdateError(true)
-      setTimeout(()=>setUpdateError(false), 3000)
+      setTimeout(()=>setUpdateError(false), 2000)
     })
   }
   return (
@@ -46,6 +49,8 @@ function ShoppingList(props) {
           ? <Alert variant='danger'>Oops, something went wrong!</Alert>
           : null
         }
+        <Row>
+        <Col>
         <ListGroup>
           {Object.entries(props.shoppingList).map(item => (
             <ListGroup.Item>
@@ -70,6 +75,8 @@ function ShoppingList(props) {
             </ListGroup.Item>
           ))}
         </ListGroup>
+        </Col>
+        </Row>
         </Jumbotron>
       </Container>
 

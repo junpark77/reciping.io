@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './RecipeViewer.css'
-import { ListGroup, Row, Image, Col, Button, Container, InputGroup, FormControl } from 'react-bootstrap';
+import { Alert, ListGroup, Row, Image, Col, Button, Container, InputGroup, FormControl } from 'react-bootstrap';
 
 const RecipeViewer = (props) => {
-
   const { name, ingredients, instructions, time, servings, image  } = props.recipe;
+  const [ recipeAdded, setRecipeAdded ] = useState(0);
+  const [ ingredientsAdded, setIngredientsAdded ] = useState(0);
+
+  const addRecipe = () => {
+    axios.post('/recipes', {name, url: props.linkToOrigin, image})
+      .then((result) => {
+        props.setSavedRecipes(result.data)
+        setRecipeAdded(1);
+        setTimeout(()=>{setRecipeAdded(0)}, 2000);
+      })
+      .catch((error) => {
+        setRecipeAdded(-1);
+        setTimeout(()=>{setRecipeAdded(0)}, 2000);
+      })
+  }
+
+  const addIngredients = () => {
+    axios.post('/shoppingList', {ingredients: ingredients})
+      .then((result) => {
+        props.setShoppingList(result.data)
+        setIngredientsAdded(1);
+        setTimeout(()=>{setIngredientsAdded(0)}, 2000);
+      })
+      .catch((error) => {
+        setIngredientsAdded(-1);
+        setTimeout(()=>{setIngredientsAdded(0)}, 2000);
+      })
+  }
+
   return(
     <Container>
       <div className="col-md-12 text-right">
@@ -30,9 +59,23 @@ const RecipeViewer = (props) => {
               <ListGroup.Item key={item}>{item}</ListGroup.Item>
             ))}
           </ListGroup>
-            <Button className="addButton">Add Ingredients</Button>
+          {props.userID ?
+            <>
+            <Button className="addButton" onClick={addIngredients}>Add Ingredients</Button>
             <br/>
-            <Button className="addButton">Save Recipe</Button>
+            <Button className="addButton" onClick={addRecipe}>Save Recipe</Button>
+            {ingredientsAdded === -1
+              ? <Alert variant='danger'>Oops, something went wrong!</Alert>
+              : ingredientsAdded === 1 ? <Alert variant='success'>Added to your shopping list!</Alert> : null
+            }
+            {recipeAdded === -1
+              ? <Alert variant='danger'>Oops, something went wrong!</Alert>
+              : recipeAdded === 1 ? <Alert variant='success'>Recipe Added!</Alert> : null
+            }
+            </>
+            : null
+          }
+
           </Col>
         <Col>
           <h4>Directions</h4>
@@ -56,6 +99,7 @@ const RecipeViewer = (props) => {
           <Button onClick={() => props.handleURLSubmit(props.recipeURL)} variant="outline-secondary">Show me another recipe</Button>
         </InputGroup.Append>
     </InputGroup>
+        {props.errored ? <Alert variant="danger">Oops! Something went wrong... Try again with a different URL</Alert> : null}
       </Row>
     </Container>
   )

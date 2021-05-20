@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Alert, Button, Jumbotron, InputGroup, FormControl } from 'react-bootstrap';
 import RecipeViewer from './RecipeViewer'
@@ -27,8 +27,6 @@ const MainSection = (props) => {
       })
   }
 
-  const { recipeURL } = props
-
   return(
   <Jumbotron id="recipeBox">
     {recipeLoaded
@@ -38,6 +36,10 @@ const MainSection = (props) => {
         handleURLSubmit={handleURLSubmit}
         recipeURL={props.recipeURL}
         setRecipeURL={props.setRecipeURL}
+        setSavedRecipes={props.setSavedRecipes}
+        setShoppingList={props.setShoppingList}
+        errored={errored}
+        userID={props.userID}
       />
     :
     <div id="urlInput">

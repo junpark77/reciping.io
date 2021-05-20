@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
 
-const extract = require('./components/extractRecipe.js');
+const router = require('./components/router');
 
-const PORT = 3069;
+const PORT = 3001;
 const app = express();
 const distPath = path.resolve(__dirname, '..', 'build');
 
 app.use(express.json());
 app.use('/', express.static(distPath));
-app.use(extract);
+app.use(router);
 
 
 
