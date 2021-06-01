@@ -25,12 +25,15 @@ With this app, users can save, recipes and combine ingredients in their shopping
 
 Main Function:
 
-![screenshot of mainfunction](/Readme/reciping.gif?raw=true)
+![screenshot of main function](/Readme/reciping_main.gif?raw=true)
 
 Saved Recipes:
 
+![screenshot of saved_recipes](/Readme/saved_recipes.png?raw=true)
+
 Shopping List: 
 
+![screenshot of shopping_list](/Readme/shopping_list.png?raw=true)
 
 ### Available Scripts
 
@@ -40,3 +43,13 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### To Dos
+
+Due to the short development timeline, a lot of features have not been implemented/added for demonstration purposes only.
+
+1. Create prorprietary recipe scraping algorithm.
+2. Incorporate real authentication strategy.
+3. Flesh out the shopping list management algorithm.
+4. Add database for data persistence.
+5. Add the ability to export shopping lists.
