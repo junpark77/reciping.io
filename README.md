@@ -19,11 +19,17 @@ And Special thanks to
 The package allowed for quick implmentation of the application for demonstration purpose.
 Proprietary recipe scraping coming soon!
 
-With this app, users can save, recipes and combine ingredients in their shopping list!
+With this app, users can save, recipes and combine ingredients in their shopping list.
 
 ### Screenshots
 
-Home Screen:
+Main Function:
+
+![screenshot of mainfunction](/Readme/reciping.gif?raw=true)
+
+Saved Recipes:
+
+Shopping List: 
 
 
 ### Available Scripts
